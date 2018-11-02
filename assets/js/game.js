@@ -2,6 +2,7 @@
 function MemoryMatchGame() {
     this.cards = [];
     this.matchCount = 0;
+    this.revertTime = 2000;
     this.imageList = [
         'http://msalvati.com/projects/memory_match//images/walter-white-1.svg',
         'http://msalvati.com/projects/memory_match//images/mike-erhmantraut-6.svg',
@@ -38,13 +39,16 @@ function MemoryMatchGame() {
             if (this.clickedCardsList[0].getID() === this.clickedCardsList[1].getID()) {
                 console.log('Match')
             } else {
-                
+                setTimeout(this.revertClickedCards.bind(this), this.revertTime)
             }
         }
     }
 
     this.revertClickedCards = function() {
-
+        for(let i in this.clickedCardsList){
+            this.clickedCardsList[i].hideSelf();
+        }
+        this.clickedCardsList = [];
     }
 
 

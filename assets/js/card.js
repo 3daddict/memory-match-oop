@@ -39,7 +39,7 @@ function Card(frontImage, parentObject){
     }
 
     this.hideSelf = function(){
-
+        this.renderedElement.find('.back').show();
     }
 
     this.getID = function() {

@@ -27,7 +27,23 @@ function MemoryMatchGame() {
         return cardList;
     }
 
-    this.handleCardClick = function() {
+    this.handleCardClick = function(cardObjClicked) {
+        console.log('My chillin was clicked: ', cardObjClicked);
+
+        if (this.clickedCardsList.length < 2) {
+            this.clickedCardsList.push(cardObjClicked);
+            cardObjClicked.revealSelf();
+        }
+        if (this.clickedCardsList.length === 2) {
+            if (this.clickedCardsList[0].getID() === this.clickedCardsList[1].getID()) {
+                console.log('Match')
+            } else {
+                
+            }
+        }
+    }
+
+    this.revertClickedCards = function() {
 
     }
 

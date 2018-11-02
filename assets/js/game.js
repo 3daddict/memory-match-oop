@@ -38,17 +38,30 @@ function MemoryMatchGame() {
         if (this.clickedCardsList.length === 2) {
             if (this.clickedCardsList[0].getID() === this.clickedCardsList[1].getID()) {
                 console.log('Match')
+                this.clearClickedCardList();
+                this.matchCount += 2;
+                if (this.matchCount === this.cards.length) {
+                    this.playerWins();
+                }
             } else {
                 setTimeout(this.revertClickedCards.bind(this), this.revertTime)
             }
         }
     }
 
+    this.playerWins = function() {
+        alert('You Win');
+    }
+
+    this.clearClickedCardList = function (){
+        this.clickedCardsList = [];
+    }
+
     this.revertClickedCards = function() {
         for(let i in this.clickedCardsList){
             this.clickedCardsList[i].hideSelf();
         }
-        this.clickedCardsList = [];
+        this.clearClickedCardList();
     }
 
 

@@ -1,0 +1,12 @@
+
+.card {
+    display: inline-block;
+}
+.card .front, .card .back {
+    width: 150px;
+    height: 200px;
+}
+
+.back {
+    background-image: url('http://msalvati.com/projects/memory_match/images/bb-card-back-0.svg')
+}

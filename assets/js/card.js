@@ -11,6 +11,7 @@ function Card(frontImage, parentObject){
             class: 'card'
         });
         //child element
+        card.click(this.handleClick.bind(this));
         let front = $("<div>", {
             class: 'front',
             css: {
@@ -28,6 +29,20 @@ function Card(frontImage, parentObject){
     }
 
     this.handleClick = function() {
+        this.parent.handleCardClick(this);
+        
+    }
 
+    this.revealSelf = function(){
+        //this element > find child with back class > hide it
+        this.renderedElement.find('.back').hide();
+    }
+
+    this.hideSelf = function(){
+        this.renderedElement.find('.back').show();
+    }
+
+    this.getID = function() {
+        return this.frontImage;
     }
 }
